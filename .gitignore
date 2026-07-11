@@ -1,0 +1,9 @@
+# Maven build output
+application/backend/target/
+
+# Python cache
+application/frontend/__pycache__/
+*.pyc
+
+# Log files
+*.log

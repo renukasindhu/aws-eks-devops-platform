@@ -1,14 +1,21 @@
-# stage-1
-FROM amazoncorretto:11-alpine-jdk AS builder
-WORKDIR /app/source
-COPY . .
-RUN ./mvnw clean package -Dspring.profiles.active=build -DskipTests
+# Stage 1 - Build the application
+FROM maven:3.9.11-amazoncorretto-17 AS builder
 
-# stage-2
-FROM amazoncorretto:11-alpine-jdk
-COPY --from=builder /app/source/target/*.jar /app/app.jar
+WORKDIR /app
+
+COPY . .
+
+RUN mvn clean package \
+    -Dspring.profiles.active=build \
+    -DskipTests
+
+# Stage 2 - Runtime Image
+FROM amazoncorretto:17-alpine-jdk
+
+WORKDIR /app
+
+COPY --from=builder /app/target/*.jar app.jar
+
 EXPOSE 8084
-#RUN apk add --no-cache curl
-#HEALTHCHECK --interval=20s --timeout=3s \
-#  CMD curl -f http://localhost:8082/actuator/health || exit 1
-CMD ["java", "-jar", "/app/app.jar"]
+
+CMD ["java", "-jar", "app.jar"]
