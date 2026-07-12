@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: datastore-backend
-          image: image: renurs/datastore-backend:latest
+          image: renurs/datastore-backend:latest
           imagePullPolicy: Always
           env:
             - name: MYSQL_HOST
