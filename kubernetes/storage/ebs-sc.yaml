@@ -1,0 +1,14 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+
+metadata:
+  name: ebs-persistent-store
+
+provisioner: ebs.csi.aws.com
+
+volumeBindingMode: WaitForFirstConsumer
+
+reclaimPolicy: Delete
+
+parameters:
+  type: gp3
