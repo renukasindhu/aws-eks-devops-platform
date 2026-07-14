@@ -214,7 +214,7 @@ After provisioning the infrastructure, additional cluster configuration was comp
 
 | EKS Cluster | Worker Nodes | Namespaces |
 |-------------|---------------|---------------|
-| ![EKS Cluster](docs/screenshots/cluster/eks-cluster.png) | ![Worker Nodes](docs/screenshots/cluster/nodes.png) | [!Namespaces](docs/screenshots/cluster/namespaces.png) |
+| ![EKS Cluster](docs/screenshots/cluster/eks-cluster.png) | ![Worker Nodes](docs/screenshots/cluster/nodes.png) | ![Namespaces](docs/screenshots/cluster/namespaces.png) |
 
 ---
 
