@@ -4,7 +4,7 @@ This guide explains how to deploy the AWS EKS DevOps Platform from infrastructur
 ---
 
 # Prerequisites
-Before deploying the project, ensure the following requirements are met: /
+Before deploying the project, ensure the following requirements are met: 
 - AWS Account
 - AWS CLI configured with appropriate permissions
 - Git
@@ -16,7 +16,7 @@ Before deploying the project, ensure the following requirements are met: /
 - eksctl
 - Terraform
 
-The repository includes a helper script to install the required tools. \
+The repository includes a helper script to install the required tools. 
 ```bash
 chmod +x scripts/setup-environment.sh
 ./scripts/setup-environment.sh
@@ -33,11 +33,11 @@ cd aws-eks-devops-platform
 ---
 
 # Configure AWS CLI
-Configure AWS credentials before provisioning infrastructure. \
+Configure AWS credentials before provisioning infrastructure. 
 ```bash
 aws configure
 ```
-Verify the active identity. \
+Verify the active identity. 
 ```bash
 aws sts get-caller-identity
 ```
@@ -45,27 +45,27 @@ aws sts get-caller-identity
 ---
 
 # Provision Infrastructure using Terraform
-Navigate to the Terraform directory. \
+Navigate to the Terraform directory. 
 ```bash
 cd terraform
 ```
 
-Initialize Terraform. \
+Initialize Terraform. 
 ```bash
 terraform init
 ```
 
-Review the execution plan. \
+Review the execution plan. 
 ```bash
 terraform plan
 ```
 
-Provision the infrastructure. \
+Provision the infrastructure. 
 ```bash
 terraform apply
 ```
 
-Terraform creates: \
+Terraform creates: 
 - Amazon VPC
 - Public and Private Subnets
 - Internet Gateway
@@ -79,11 +79,11 @@ Terraform creates: \
 ---
 
 # Configure EKS Access
-Update the Kubernetes configuration. \
+Update the Kubernetes configuration. 
 ```bash
 aws eks update-kubeconfig --region <region> --name <cluster-name>
 ```
-Verify cluster connectivity. \
+Verify cluster connectivity. 
 ```bash
 kubectl get nodes
 ```
@@ -110,14 +110,14 @@ Update the Kubernetes manifests or Helm values with the correct image tags befor
 ---
 
 # Deploy the Backend Application
-Deploy the backend application using Helm.
-The backend Helm chart creates: \
+Deploy the backend application using Helm. \
+The backend Helm chart creates: 
 - Namespace
 - Deployment
 - Service
 - ConfigMap
 - Secret \
-Verify the deployment. \
+Verify the deployment. 
 ```bash
 kubectl get pods -n backend
 ```
@@ -126,7 +126,7 @@ kubectl get pods -n backend
 
 # Deploy the Frontend Application
 Deploy the frontend Kubernetes manifests. \
-Verify the deployment. \
+Verify the deployment. 
 ```bash
 kubectl get pods -n frontend
 ```
