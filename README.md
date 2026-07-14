@@ -285,7 +285,7 @@ Application parameters such as:
 are configurable through Helm values.
 
 ### Helm Structure
-[!Helm Details](docs/screenshots/argocd/helm-details-1.png)
+![Helm Details](docs/screenshots/argocd/helm-details-1.png)
 
 ---
 
